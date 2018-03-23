@@ -9,7 +9,12 @@ import java.util.List;
 
 public class Drawer {
     private static final List<FigureDrawer> FIGURE_DRAWER_LIST = List.of(
-        new CircleDrawer(), new EllipseDrawer(), new PointDrawer(), new LineDrawer(), new RectangleDrawer()
+            new CircleDrawer(),
+            new EllipseDrawer(),
+            new PointDrawer(),
+            new LineDrawer(),
+            new RectangleDrawer(),
+            new TriangleDrawer()
     );
 
     private FigureDrawer firstFigureDrawer;

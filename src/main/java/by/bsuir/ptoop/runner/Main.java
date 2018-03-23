@@ -40,6 +40,7 @@ public class Main extends Application {
             list.add(new Point(Color.BLACK, 50, 50));
             list.add(new Line(Color.CYAN, 60, 60, 500, 350));
             list.add(new Ellipse(Color.MAGENTA, Color.YELLOW, 100, 200, 300, 150));
+            list.add(new Triangle(Color.MAGENTA, Color.CYAN, 200, 100, 380, 110, 250, 20));
         } catch (FigureCreationException e) {
             e.printStackTrace();
         }

@@ -1,6 +1,6 @@
-package by.bsuir.ptoop.gui;
+package by.bsuir.oop.gui;
 
-import by.bsuir.ptoop.util.FigureList;
+import by.bsuir.oop.util.FigureList;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 

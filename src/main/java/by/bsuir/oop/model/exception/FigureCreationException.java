@@ -1,4 +1,4 @@
-package by.bsuir.ptoop.model.exception;
+package by.bsuir.oop.model.exception;
 
 public class FigureCreationException extends Exception {
     public FigureCreationException() {

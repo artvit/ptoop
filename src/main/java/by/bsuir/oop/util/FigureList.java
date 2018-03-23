@@ -1,6 +1,6 @@
-package by.bsuir.ptoop.util;
+package by.bsuir.oop.util;
 
-import by.bsuir.ptoop.model.Figure;
+import by.bsuir.oop.model.Figure;
 
 import java.util.*;
 import java.util.function.Consumer;

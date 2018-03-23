@@ -1,7 +1,7 @@
-package by.bsuir.ptoop.gui;
+package by.bsuir.oop.gui;
 
-import by.bsuir.ptoop.gui.drawer.*;
-import by.bsuir.ptoop.model.Figure;
+import by.bsuir.oop.gui.drawer.*;
+import by.bsuir.oop.model.Figure;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 

@@ -1,10 +1,10 @@
-package by.bsuir.ptoop.runner;
+package by.bsuir.oop.runner;
 
-import by.bsuir.ptoop.gui.MainController;
-import by.bsuir.ptoop.model.Color;
-import by.bsuir.ptoop.model.exception.FigureCreationException;
-import by.bsuir.ptoop.model.impl.*;
-import by.bsuir.ptoop.util.FigureList;
+import by.bsuir.oop.gui.MainController;
+import by.bsuir.oop.model.Color;
+import by.bsuir.oop.model.exception.FigureCreationException;
+import by.bsuir.oop.model.impl.*;
+import by.bsuir.oop.util.FigureList;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;

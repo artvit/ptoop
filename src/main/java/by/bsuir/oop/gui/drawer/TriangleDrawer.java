@@ -1,8 +1,8 @@
-package by.bsuir.ptoop.gui.drawer;
+package by.bsuir.oop.gui.drawer;
 
-import by.bsuir.ptoop.gui.DrawerException;
-import by.bsuir.ptoop.model.Figure;
-import by.bsuir.ptoop.model.impl.Triangle;
+import by.bsuir.oop.gui.DrawerException;
+import by.bsuir.oop.model.Figure;
+import by.bsuir.oop.model.impl.Triangle;
 import javafx.scene.paint.Color;
 
 public class TriangleDrawer extends FigureDrawer {

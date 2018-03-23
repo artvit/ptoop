@@ -1,8 +1,8 @@
-package by.bsuir.ptoop.model.impl;
+package by.bsuir.oop.model.impl;
 
-import by.bsuir.ptoop.model.Color;
-import by.bsuir.ptoop.model.Figure;
-import by.bsuir.ptoop.model.exception.FigureCreationException;
+import by.bsuir.oop.model.Color;
+import by.bsuir.oop.model.Figure;
+import by.bsuir.oop.model.exception.FigureCreationException;
 
 public class Line extends Figure {
     private double startX;

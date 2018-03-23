@@ -1,4 +1,4 @@
-package by.bsuir.ptoop.gui;
+package by.bsuir.oop.gui;
 
 public class DrawerException extends RuntimeException {
     public DrawerException() {

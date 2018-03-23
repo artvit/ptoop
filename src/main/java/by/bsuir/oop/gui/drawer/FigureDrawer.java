@@ -1,6 +1,6 @@
-package by.bsuir.ptoop.gui.drawer;
+package by.bsuir.oop.gui.drawer;
 
-import by.bsuir.ptoop.model.Figure;
+import by.bsuir.oop.model.Figure;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.paint.Color;
 
@@ -10,7 +10,7 @@ public abstract class FigureDrawer {
 
     public abstract void draw(Figure figure);
 
-    protected Color getFxColor(by.bsuir.ptoop.model.Color color) {
+    protected Color getFxColor(by.bsuir.oop.model.Color color) {
         return Color.color(color.getRed(), color.getGreen(), color.getBlue());
     }
 

@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>by.bsuir</groupId>
-    <artifactId>ptoop</artifactId>
+    <artifactId>oop</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <packaging>jar</packaging>
@@ -35,7 +35,7 @@
                     <artifactId>javafx-maven-plugin</artifactId>
                     <version>8.8.3</version>
                     <configuration>
-                        <mainClass>by.bsuir.ptoop.runner.Main</mainClass>
+                        <mainClass>by.bsuir.oop.runner.Main</mainClass>
                     </configuration>
                 </plugin>
             </plugins>

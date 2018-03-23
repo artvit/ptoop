@@ -1,4 +1,4 @@
-package by.bsuir.ptoop.model;
+package by.bsuir.oop.model;
 
 public abstract class ShapeFigure extends Figure {
     private Color fillColor;

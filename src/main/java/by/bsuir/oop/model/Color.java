@@ -1,4 +1,4 @@
-package by.bsuir.ptoop.model;
+package by.bsuir.oop.model;
 
 public class Color {
     public static final Color RED = new Color(1, 0, 0);

@@ -1,4 +1,8 @@
-package by.bsuir.ptoop.model;
+package by.bsuir.ptoop.model.impl;
+
+import by.bsuir.ptoop.model.Color;
+import by.bsuir.ptoop.model.ShapeFigure;
+import by.bsuir.ptoop.model.exception.FigureCreationException;
 
 public class Circle extends ShapeFigure {
     private double radius;
@@ -6,8 +10,14 @@ public class Circle extends ShapeFigure {
     private double centerX;
     private double centerY;
 
-    public Circle(int color, int fillColor, double radius, double centerX, double centerY) {
+    public Circle(Color color, Color fillColor, double radius, double centerX, double centerY) throws FigureCreationException {
         super(color, fillColor);
+        if (radius <= 0) {
+            throw new FigureCreationException("Radius must have positive value");
+        }
+        if (centerX <= 0 || centerY <= 0) {
+            throw new FigureCreationException("Coordinates must have positive value");
+        }
         this.radius = radius;
         this.centerX = centerX;
         this.centerY = centerY;

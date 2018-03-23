@@ -8,12 +8,15 @@
     <artifactId>ptoop</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <packaging>jar</packaging>
+
     <properties>
         <maven.version>3.3.9</maven.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <jdk.version>1.9</jdk.version>
     </properties>
+
     <build>
         <pluginManagement>
             <plugins>
@@ -26,12 +29,26 @@
                         <target>${jdk.version}</target>
                     </configuration>
                 </plugin>
+
+                <plugin>
+                    <groupId>com.zenjava</groupId>
+                    <artifactId>javafx-maven-plugin</artifactId>
+                    <version>8.8.3</version>
+                    <configuration>
+                        <mainClass>by.bsuir.ptoop.runner.Main</mainClass>
+                    </configuration>
+                </plugin>
             </plugins>
         </pluginManagement>
+
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
+            </plugin>
+            <plugin>
+                <groupId>com.zenjava</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
             </plugin>
         </plugins>
     </build>

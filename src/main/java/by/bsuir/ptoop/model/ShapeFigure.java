@@ -1,18 +1,18 @@
 package by.bsuir.ptoop.model;
 
-public class ShapeFigure extends Figure {
-    private int fillColor;
+public abstract class ShapeFigure extends Figure {
+    private Color fillColor;
 
-    public ShapeFigure(int color, int fillColor) {
+    public ShapeFigure(Color color, Color fillColor) {
         super(color);
         this.fillColor = fillColor;
     }
 
-    public int getFillColor() {
+    public Color getFillColor() {
         return fillColor;
     }
 
-    public void setFillColor(int fillColor) {
+    public void setFillColor(Color fillColor) {
         this.fillColor = fillColor;
     }
 }

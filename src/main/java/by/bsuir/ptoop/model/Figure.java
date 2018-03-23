@@ -1,17 +1,17 @@
 package by.bsuir.ptoop.model;
 
 public abstract class Figure {
-    private int color;
+    private Color color;
 
-    public Figure(int color) {
+    public Figure(Color color) {
         this.color = color;
     }
 
-    public int getColor() {
+    public Color getColor() {
         return color;
     }
 
-    public void setColor(int color) {
+    public void setColor(Color color) {
         this.color = color;
     }
 }

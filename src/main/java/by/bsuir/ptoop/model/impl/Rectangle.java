@@ -1,4 +1,8 @@
-package by.bsuir.ptoop.model;
+package by.bsuir.ptoop.model.impl;
+
+import by.bsuir.ptoop.model.Color;
+import by.bsuir.ptoop.model.ShapeFigure;
+import by.bsuir.ptoop.model.exception.FigureCreationException;
 
 public class Rectangle extends ShapeFigure {
     private double x;
@@ -6,8 +10,14 @@ public class Rectangle extends ShapeFigure {
     private double height;
     private double width;
 
-    public Rectangle(int color, int fillColor, double x, double y, double height, double width) {
+    public Rectangle(Color color, Color fillColor, double x, double y, double height, double width) throws FigureCreationException {
         super(color, fillColor);
+        if (x <= 0 || y <= 0) {
+            throw new FigureCreationException("Coordinates must have positive value");
+        }
+        if (height <= 0 || width <= 0) {
+            throw new FigureCreationException("Dimensions must have positive value");
+        }
         this.x = x;
         this.y = y;
         this.height = height;

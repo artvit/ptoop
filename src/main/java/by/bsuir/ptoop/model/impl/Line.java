@@ -1,4 +1,8 @@
-package by.bsuir.ptoop.model;
+package by.bsuir.ptoop.model.impl;
+
+import by.bsuir.ptoop.model.Color;
+import by.bsuir.ptoop.model.Figure;
+import by.bsuir.ptoop.model.exception.FigureCreationException;
 
 public class Line extends Figure {
     private double startX;
@@ -7,8 +11,11 @@ public class Line extends Figure {
     private double endX;
     private double endY;
 
-    public Line(int color, double startX, double startY, double endX, double endY) {
+    public Line(Color color, double startX, double startY, double endX, double endY) throws FigureCreationException {
         super(color);
+        if (startX <= 0 || startY <= 0 || endX <= 0 || endY <= 0) {
+            throw new FigureCreationException("Coordinates must have positive value");
+        }
         this.startX = startX;
         this.startY = startY;
         this.endX = endX;

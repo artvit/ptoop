@@ -1,6 +1,5 @@
 package by.bsuir.oop.gui.drawer;
 
-import by.bsuir.oop.gui.DrawerException;
 import by.bsuir.oop.model.Figure;
 import by.bsuir.oop.model.impl.Circle;
 import javafx.scene.paint.Color;

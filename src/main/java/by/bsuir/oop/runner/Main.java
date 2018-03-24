@@ -1,6 +1,7 @@
 package by.bsuir.oop.runner;
 
 import by.bsuir.oop.gui.MainController;
+import by.bsuir.oop.gui.module.*;
 import by.bsuir.oop.model.Color;
 import by.bsuir.oop.model.exception.FigureCreationException;
 import by.bsuir.oop.model.impl.*;
@@ -11,9 +12,20 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.util.List;
+
 public class Main extends Application {
 
     private static final String FXML_FILE_PATH = "/fxml/main.fxml";
+
+    private static final List<AbstractModule> MODULE_LIST = List.of(
+            new PointModule(),
+            new LineModule(),
+            new RectangleModule(),
+            new TriangleModule(),
+            new CircleModule(),
+            new EllipseModule()
+    );
 
     public static void main(String[] args) {
         launch(args);
@@ -25,13 +37,25 @@ public class Main extends Application {
         Parent root = loader.load(getClass().getResourceAsStream(FXML_FILE_PATH));
 
         MainController controller = loader.getController();
-        controller.drawFigureList(createFigureList());
+        MODULE_LIST.forEach(module -> {
+            controller.getDrawer().addDrawer(module.getFigureDrawer());
+            module.init(controller.getDrawer());
+            controller.addMenuItem(module.getMenuItem());
+        });
 
-        stage.setTitle("PTOOP");
+//        controller.drawFigureList(createFigureList());
+
+        stage.setTitle("OOP");
         stage.setScene(new Scene(root));
         stage.show();
     }
 
+
+    /**
+     * Returns Figure lists of Figure implementations
+     *
+     * @return FigureList
+     */
     private static FigureList createFigureList() {
         FigureList list = new FigureList();
         try {

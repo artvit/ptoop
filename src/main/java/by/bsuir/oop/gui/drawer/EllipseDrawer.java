@@ -1,20 +1,20 @@
 package by.bsuir.oop.gui.drawer;
 
-import by.bsuir.oop.gui.DrawerException;
 import by.bsuir.oop.model.Figure;
 import by.bsuir.oop.model.impl.Ellipse;
 import javafx.scene.paint.Color;
 
 public class EllipseDrawer extends FigureDrawer{
     @Override
-    public void draw(Figure figure) {
-        if (figure instanceof Ellipse) {
-            drawEllipse((Ellipse)figure);
-        } else if (getNextFigureDrawer() != null) {
-            getNextFigureDrawer().draw(figure);
-        } else {
-            throw new DrawerException("Unsupported figure passed to drawer");
-        }
+    public boolean supports(Figure figure) {
+        return figure instanceof Ellipse;
+    }
+
+
+    @Override
+    public void drawFigure(Figure figure) {
+        Ellipse line = (Ellipse) figure;
+        drawEllipse(line);
     }
 
     private void drawEllipse(Ellipse ellipse) {

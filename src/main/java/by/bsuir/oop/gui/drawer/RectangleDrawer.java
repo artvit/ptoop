@@ -7,16 +7,16 @@ import javafx.scene.paint.Color;
 
 public class RectangleDrawer extends FigureDrawer {
     @Override
-    public void draw(Figure figure) {
-        if (figure instanceof Rectangle) {
-            drawRectangle((Rectangle)figure);
-        } else if (getNextFigureDrawer() != null) {
-            getNextFigureDrawer().draw(figure);
-        } else {
-            throw new DrawerException("Unsupported figure passed to drawer");
-        }
+    public boolean supports(Figure figure) {
+        return figure instanceof Rectangle;
     }
 
+
+    @Override
+    public void drawFigure(Figure figure) {
+        Rectangle line = (Rectangle) figure;
+        drawRectangle(line);
+    }
     private void drawRectangle(Rectangle rectangle) {
         Color fxStrokeColor = getFxColor(rectangle.getColor());
         Color fxFillColor = getFxColor(rectangle.getFillColor());

@@ -1,8 +1,8 @@
-package by.bsuir.oop.model.impl;
+package by.bsuir.oop.model;
 
 import by.bsuir.oop.model.Color;
 import by.bsuir.oop.model.ShapeFigure;
-import by.bsuir.oop.model.exception.FigureCreationException;
+import by.bsuir.oop.model.FigureCreationException;
 
 public class Circle extends ShapeFigure {
     private double radius;

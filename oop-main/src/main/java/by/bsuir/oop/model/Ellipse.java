@@ -1,7 +1,4 @@
-package by.bsuir.oop.model.impl;
-
-import by.bsuir.oop.model.Color;
-import by.bsuir.oop.model.exception.FigureCreationException;
+package by.bsuir.oop.model;
 
 public class Ellipse extends Circle {
     private double horizontalRadius;

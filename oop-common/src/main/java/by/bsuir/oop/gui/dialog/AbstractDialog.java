@@ -2,7 +2,7 @@ package by.bsuir.oop.gui.dialog;
 
 import by.bsuir.oop.model.Color;
 import by.bsuir.oop.model.Figure;
-import by.bsuir.oop.model.exception.FigureCreationException;
+import by.bsuir.oop.model.FigureCreationException;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
 import javafx.scene.control.*;

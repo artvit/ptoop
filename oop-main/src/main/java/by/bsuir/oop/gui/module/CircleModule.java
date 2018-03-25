@@ -3,7 +3,7 @@ package by.bsuir.oop.gui.module;
 import by.bsuir.oop.gui.dialog.CircleDialog;
 import by.bsuir.oop.gui.editor.AbstractChainEditor;
 import by.bsuir.oop.gui.editor.CircleEditor;
-import by.bsuir.oop.model.impl.Circle;
+import by.bsuir.oop.model.Circle;
 
 public class CircleModule extends AbstractModule<Circle> {
 

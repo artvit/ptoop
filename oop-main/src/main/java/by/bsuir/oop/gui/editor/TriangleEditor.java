@@ -2,7 +2,7 @@ package by.bsuir.oop.gui.editor;
 
 import by.bsuir.oop.gui.dialog.TriangleDialog;
 import by.bsuir.oop.model.Figure;
-import by.bsuir.oop.model.impl.Triangle;
+import by.bsuir.oop.model.Triangle;
 
 import java.util.Optional;
 

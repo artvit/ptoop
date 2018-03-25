@@ -2,7 +2,7 @@ package by.bsuir.oop.gui.module;
 
 import by.bsuir.oop.gui.dialog.RectangleDialog;
 import by.bsuir.oop.gui.editor.RectangleEditor;
-import by.bsuir.oop.model.impl.Rectangle;
+import by.bsuir.oop.model.Rectangle;
 
 public class RectangleModule extends AbstractModule<Rectangle> {
     @Override

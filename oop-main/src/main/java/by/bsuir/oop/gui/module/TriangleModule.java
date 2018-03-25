@@ -2,7 +2,7 @@ package by.bsuir.oop.gui.module;
 
 import by.bsuir.oop.gui.dialog.TriangleDialog;
 import by.bsuir.oop.gui.editor.TriangleEditor;
-import by.bsuir.oop.model.impl.Triangle;
+import by.bsuir.oop.model.Triangle;
 
 public class TriangleModule extends AbstractModule<Triangle> {
     @Override

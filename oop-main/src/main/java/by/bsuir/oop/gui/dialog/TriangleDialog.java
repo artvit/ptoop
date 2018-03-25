@@ -1,8 +1,8 @@
 package by.bsuir.oop.gui.dialog;
 
 import by.bsuir.oop.model.Color;
-import by.bsuir.oop.model.exception.FigureCreationException;
-import by.bsuir.oop.model.impl.Triangle;
+import by.bsuir.oop.model.FigureCreationException;
+import by.bsuir.oop.model.Triangle;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;

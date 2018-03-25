@@ -2,7 +2,7 @@ package by.bsuir.oop.gui.editor;
 
 import by.bsuir.oop.gui.dialog.RectangleDialog;
 import by.bsuir.oop.model.Figure;
-import by.bsuir.oop.model.impl.Rectangle;
+import by.bsuir.oop.model.Rectangle;
 
 import java.util.Optional;
 

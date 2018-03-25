@@ -2,7 +2,7 @@ package by.bsuir.oop.gui.editor;
 
 import by.bsuir.oop.gui.dialog.EllipseDialog;
 import by.bsuir.oop.model.Figure;
-import by.bsuir.oop.model.impl.Ellipse;
+import by.bsuir.oop.model.Ellipse;
 
 import java.util.Optional;
 

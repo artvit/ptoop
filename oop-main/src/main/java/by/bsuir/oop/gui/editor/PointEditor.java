@@ -2,7 +2,7 @@ package by.bsuir.oop.gui.editor;
 
 import by.bsuir.oop.gui.dialog.PointDialog;
 import by.bsuir.oop.model.Figure;
-import by.bsuir.oop.model.impl.Point;
+import by.bsuir.oop.model.Point;
 
 import java.util.Optional;
 

@@ -2,7 +2,7 @@ package by.bsuir.oop.gui.module;
 
 import by.bsuir.oop.gui.dialog.PointDialog;
 import by.bsuir.oop.gui.editor.PointEditor;
-import by.bsuir.oop.model.impl.Point;
+import by.bsuir.oop.model.Point;
 
 
 public class PointModule extends AbstractModule<Point> {

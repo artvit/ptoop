@@ -2,7 +2,7 @@ package by.bsuir.oop.gui.module;
 
 import by.bsuir.oop.gui.dialog.LineDialog;
 import by.bsuir.oop.gui.editor.LineEditor;
-import by.bsuir.oop.model.impl.Line;
+import by.bsuir.oop.model.Line;
 
 public class LineModule extends AbstractModule<Line> {
     @Override

@@ -9,6 +9,9 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>oop-main</module>
+        <module>oop-round-rectangle</module>
+        <module>oopcommon</module>
+        <module>oop-common</module>
     </modules>
 
     <packaging>pom</packaging>

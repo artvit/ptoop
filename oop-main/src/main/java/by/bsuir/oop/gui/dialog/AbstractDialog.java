@@ -127,7 +127,7 @@ public abstract class AbstractDialog<T extends Figure> {
      * @param color Color from Figure
      * @return Color from JavaFX
      */
-    protected javafx.scene.paint.Color getFxColor(by.bsuir.oop.model.Color color) {
+    protected javafx.scene.paint.Color getFxColor(Color color) {
         return javafx.scene.paint.Color.color(color.getRed(), color.getGreen(), color.getBlue());
     }
 }

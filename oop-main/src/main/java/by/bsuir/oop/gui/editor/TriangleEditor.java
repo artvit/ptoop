@@ -3,7 +3,6 @@ package by.bsuir.oop.gui.editor;
 import by.bsuir.oop.gui.dialog.TriangleDialog;
 import by.bsuir.oop.model.Figure;
 import by.bsuir.oop.model.impl.Triangle;
-import javafx.scene.paint.Color;
 
 import java.util.Optional;
 

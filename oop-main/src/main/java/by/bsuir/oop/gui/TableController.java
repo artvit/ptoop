@@ -48,8 +48,8 @@ public class TableController {
     }
 
     /**
-     * Adds figure to table
-     * @param figure
+     * Adds figure info to table
+     * @param figure object of Figure subclass
      */
     public void addFigure(Figure figure) {
         data.add(new Row(false, figure));

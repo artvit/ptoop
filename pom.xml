@@ -5,10 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>by.bsuir</groupId>
-    <artifactId>oop</artifactId>
+    <artifactId>by.bsuir.oop</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>oop-main</module>
+    </modules>
 
-    <packaging>jar</packaging>
+    <packaging>pom</packaging>
 
     <properties>
         <maven.version>3.3.9</maven.version>
@@ -35,7 +38,7 @@
                     <artifactId>javafx-maven-plugin</artifactId>
                     <version>8.8.3</version>
                     <configuration>
-                        <mainClass>by.bsuir.oop.runner.Main</mainClass>
+                        <mainClass>by.bsuir.by.bsuir.oop.runner.Main</mainClass>
                     </configuration>
                 </plugin>
             </plugins>

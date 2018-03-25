@@ -19,6 +19,11 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.*;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLClassLoader;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -27,6 +32,7 @@ public class TableController {
     @FXML private Menu addMenu;
     @FXML private Menu editMenu;
     @FXML private Menu serializeMenu;
+    @FXML private Menu optionsMenu;
 
     @FXML private TableView<Row> table;
     @FXML private TableColumn<Row, Boolean> checkboxColumn;
@@ -43,6 +49,7 @@ public class TableController {
         initTableView();
         initEditMenu();
         initSerializeMenu();
+        initOptionsMenu();
         objectMapper = new ObjectMapper(new BsonFactory());
         objectMapper.enableDefaultTyping();
     }
@@ -161,11 +168,49 @@ public class TableController {
         serializeMenu.getItems().add(deserializeMenuItem);
     }
 
+    /**
+     * Initializes options menu
+     */
+    private void initOptionsMenu() {
+        MenuItem loadPluginMenuItem = new MenuItem("Load Plugin");
+        loadPluginMenuItem.setOnAction(event -> {
+            TextInputDialog dialog = new TextInputDialog("by.bsuir.oop.gui.module.RoundRectangleModule");
+            dialog.setTitle("Module Class");
+            dialog.setHeaderText("Specify full module class name");
+            dialog.setContentText("Class:");
+            Optional<String> classNameOptional = dialog.showAndWait();
+            classNameOptional.ifPresent(this::loadModule);
+        });
+        optionsMenu.getItems().add(loadPluginMenuItem);
+    }
+
+    /**
+     * Creates file chooser dialog for BSON files
+     *
+     * @return FileChooser
+     */
     private FileChooser getBsonFileChooser() {
         FileChooser fileChooser = new FileChooser();
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("BSON files (*.bson)", "*.bson"));
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Any files", "*"));
         return fileChooser;
+    }
+
+    /**
+     * Load module buy class name
+     *
+     * @param className full name of module class
+     */
+    private void loadModule(String className) {
+        try {
+            Class<AbstractModule<Figure>> moduleClass = (Class<AbstractModule<Figure>>)Class.forName(className);
+            Constructor<AbstractModule<Figure>> constructor = moduleClass.getConstructor();
+            AbstractModule<Figure> module = constructor.newInstance();
+            addModule(module);
+        } catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException
+                | InstantiationException | InvocationTargetException e) {
+            e.printStackTrace();
+        }
     }
 
 }

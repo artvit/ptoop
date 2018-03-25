@@ -24,6 +24,11 @@ public abstract class AbstractDialog<T extends Figure> {
         dialog.getDialogPane().setContent(grid);
     }
 
+    /**
+     * Creates dialog to edit figure
+     *
+     * @param figure Figure to edit
+     */
     public AbstractDialog(T figure) {
         initDialog("Edit Figure", "Enter data to edit figure", "Save");
         GridPane grid = initGrid();

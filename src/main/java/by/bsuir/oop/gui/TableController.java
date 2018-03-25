@@ -47,11 +47,19 @@ public class TableController {
         objectMapper.enableDefaultTyping();
     }
 
-
+    /**
+     * Adds figure to table
+     * @param figure
+     */
     public void addFigure(Figure figure) {
         data.add(new Row(false, figure));
     }
 
+    /**
+     * Adds MenuItem to Add menu and adds editor to chain
+     *
+     * @param module module that provides dialog and editor
+     */
     public void addModule(AbstractModule<Figure> module) {
         AbstractChainEditor moduleEditor = module.getEditor();
         moduleEditor.setNext(editor);
@@ -66,10 +74,18 @@ public class TableController {
         addMenu.getItems().add(item);
     }
 
+    /**
+     * Sets stage (needed for FileChooser)
+     *
+     * @param stage parent stage
+     */
     public void setStage(Stage stage) {
         this.stage = stage;
     }
 
+    /**
+     * Initializes table columns and row list
+     */
     private void initTableView() {
         checkboxColumn.setCellFactory(CheckBoxTableCell.forTableColumn(checkboxColumn));
         checkboxColumn.setCellValueFactory(param -> param.getValue().checkedProperty());
@@ -81,6 +97,9 @@ public class TableController {
         table.setEditable(true);
     }
 
+    /**
+     * Adds Items to edit menu
+     */
     private void initEditMenu() {
         MenuItem deleteMenuItem = new MenuItem("Delete Selected");
         deleteMenuItem.setOnAction(event -> {
@@ -100,6 +119,9 @@ public class TableController {
         editMenu.getItems().add(editMenuItem);
     }
 
+    /**
+     * Adds items to serialization menu
+     */
     private void initSerializeMenu() {
         MenuItem serializeMenuItem = new MenuItem("Serialize");
         serializeMenuItem.setOnAction(event -> {

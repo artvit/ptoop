@@ -18,23 +18,29 @@ public abstract class AbstractDialog<T extends Figure> {
      * Creates basic dialog with GridPane and uses overridden methods
      */
     public AbstractDialog() {
-        initDialog();
+        initDialog("Create Figure", "Enter data to create figure", "Create");
         GridPane grid = initGrid();
         setContentToGridPane(grid);
         dialog.getDialogPane().setContent(grid);
     }
 
     public AbstractDialog(T figure) {
-        this();
+        initDialog("Edit Figure", "Enter data to edit figure", "Save");
+        GridPane grid = initGrid();
+        setContentToGridPane(grid);
+        dialog.getDialogPane().setContent(grid);
         setFigureState(figure);
     }
 
-    private void initDialog() {
+    /**
+     * Initializes dialog window
+     */
+    private void initDialog(String title, String headerText, String successButtonText) {
         dialog = new Dialog<>();
-        dialog.setTitle("Create Figure");
-        dialog.setHeaderText("Enter data to create figure");
+        dialog.setTitle(title);
+        dialog.setHeaderText(headerText);
 
-        ButtonType createButtonType = new ButtonType("Create", ButtonBar.ButtonData.OK_DONE);
+        ButtonType createButtonType = new ButtonType(successButtonText, ButtonBar.ButtonData.OK_DONE);
         dialog.getDialogPane().getButtonTypes().addAll(createButtonType, ButtonType.CANCEL);
 
         dialog.setResultConverter(dialogButton -> {
@@ -49,6 +55,11 @@ public abstract class AbstractDialog<T extends Figure> {
         });
     }
 
+    /**
+     * Initializes grid pane
+     *
+     * @return new grid pane in default style
+     */
     private GridPane initGrid() {
         GridPane grid = new GridPane();
         grid.setHgap(10);
@@ -56,8 +67,6 @@ public abstract class AbstractDialog<T extends Figure> {
         grid.setPadding(new Insets(20, 20, 10, 10));
         return grid;
     }
-
-
 
     /**
      * Implementations should set content to passed as parameter grid pane

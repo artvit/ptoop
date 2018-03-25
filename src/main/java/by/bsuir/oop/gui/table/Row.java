@@ -6,6 +6,9 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleBooleanProperty;
 import javafx.beans.property.SimpleObjectProperty;
 
+/**
+ * Class describes data row in table
+ */
 public class Row {
     private BooleanProperty checked;
     private ObjectProperty<Figure> figure;

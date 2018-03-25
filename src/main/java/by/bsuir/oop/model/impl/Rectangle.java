@@ -10,6 +10,9 @@ public class Rectangle extends ShapeFigure {
     private double height;
     private double width;
 
+    public Rectangle() {
+    }
+
     public Rectangle(Color color, Color fillColor, double x, double y, double height, double width) throws FigureCreationException {
         super(color, fillColor);
         if (x <= 0 || y <= 0) {
@@ -54,5 +57,15 @@ public class Rectangle extends ShapeFigure {
 
     public void setWidth(double width) {
         this.width = width;
+    }
+
+    @Override
+    public String toString() {
+        return "Rectangle{" +
+                "x=" + x +
+                ", y=" + y +
+                ", height=" + height +
+                ", width=" + width +
+                "} " + super.toString();
     }
 }

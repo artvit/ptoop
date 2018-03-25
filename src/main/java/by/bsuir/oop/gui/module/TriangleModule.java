@@ -1,22 +1,22 @@
 package by.bsuir.oop.gui.module;
 
 import by.bsuir.oop.gui.dialog.TriangleDialog;
-import by.bsuir.oop.gui.drawer.TriangleDrawer;
+import by.bsuir.oop.gui.editor.TriangleEditor;
 import by.bsuir.oop.model.impl.Triangle;
 
 public class TriangleModule extends AbstractModule<Triangle> {
     @Override
-    public TriangleDrawer getFigureDrawer() {
-        return new TriangleDrawer();
+    public TriangleEditor getEditor() {
+        return new TriangleEditor();
     }
 
     @Override
-    protected TriangleDialog getDialog() {
+    public TriangleDialog getDialog() {
         return new TriangleDialog();
     }
 
     @Override
-    protected String getMenuItemTitle() {
-        return "Draw Triangle";
+    public String getMenuItemTitle() {
+        return "Triangle";
     }
 }

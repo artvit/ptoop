@@ -14,6 +14,13 @@ public class CircleDialog extends AbstractDialog<Circle> {
     private TextField centerYTextField;
     private TextField radiusTextField;
 
+    public CircleDialog() {
+    }
+
+    public CircleDialog(Circle figure) {
+        super(figure);
+    }
+
     @Override
     protected void setContentToGridPane(GridPane pane) {
         colorPicker = new ColorPicker();
@@ -27,6 +34,16 @@ public class CircleDialog extends AbstractDialog<Circle> {
         addRowToGrid(pane, 2, "Center X", centerXTextField);
         addRowToGrid(pane, 3, "Center Y", centerYTextField);
         addRowToGrid(pane, 4, "Radius", radiusTextField);
+    }
+
+    @Override
+    protected void setFigureState(Circle figure) {
+        colorPicker.setValue(getFxColor(figure.getColor()));
+        fillColorPicker.setValue(getFxColor(figure.getFillColor()));
+        centerXTextField.textProperty().setValue(Double.toString(figure.getCenterX()));
+        centerYTextField.textProperty().setValue(Double.toString(figure.getCenterY()));
+        radiusTextField.textProperty().setValue(Double.toString(figure.getRadius()));
+
     }
 
     @Override

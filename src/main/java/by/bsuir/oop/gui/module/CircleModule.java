@@ -1,22 +1,25 @@
 package by.bsuir.oop.gui.module;
 
 import by.bsuir.oop.gui.dialog.CircleDialog;
-import by.bsuir.oop.gui.drawer.CircleDrawer;
+import by.bsuir.oop.gui.editor.AbstractChainEditor;
+import by.bsuir.oop.gui.editor.CircleEditor;
 import by.bsuir.oop.model.impl.Circle;
 
 public class CircleModule extends AbstractModule<Circle> {
+
+
     @Override
-    public CircleDrawer getFigureDrawer() {
-        return new CircleDrawer();
+    public AbstractChainEditor getEditor() {
+        return new CircleEditor();
     }
 
     @Override
-    protected CircleDialog getDialog() {
+    public CircleDialog getDialog() {
         return new CircleDialog();
     }
 
     @Override
-    protected String getMenuItemTitle() {
-        return "Draw Circle";
+    public String getMenuItemTitle() {
+        return "Circle";
     }
 }

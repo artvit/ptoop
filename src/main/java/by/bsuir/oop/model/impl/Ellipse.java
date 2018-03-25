@@ -6,6 +6,9 @@ import by.bsuir.oop.model.exception.FigureCreationException;
 public class Ellipse extends Circle {
     private double horizontalRadius;
 
+    public Ellipse() {
+    }
+
     public Ellipse(Color color, Color fillColor, double radius, double centerX, double centerY, double horizontalRadius) throws FigureCreationException {
         super(color, fillColor, radius, centerX, centerY);
         if (horizontalRadius <= 0) {
@@ -20,5 +23,12 @@ public class Ellipse extends Circle {
 
     public void setHorizontalRadius(double horizontalRadius) {
         this.horizontalRadius = horizontalRadius;
+    }
+
+    @Override
+    public String toString() {
+        return "Ellipse{" +
+                "horizontalRadius=" + horizontalRadius +
+                "} " + super.toString();
     }
 }

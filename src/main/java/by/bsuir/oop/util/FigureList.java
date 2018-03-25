@@ -15,6 +15,10 @@ public class FigureList implements List<Figure> {
         list = new ArrayList<>();
     }
 
+    public FigureList(List<Figure> list) {
+        this.list = new ArrayList<>(list);
+    }
+
     public int size() {
         return list.size();
     }

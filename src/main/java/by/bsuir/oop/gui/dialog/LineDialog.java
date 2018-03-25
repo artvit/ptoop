@@ -14,6 +14,13 @@ public class LineDialog extends AbstractDialog<Line> {
     private TextField endXTextField;
     private TextField endYTextField;
 
+    public LineDialog() {
+    }
+
+    public LineDialog(Line figure) {
+        super(figure);
+    }
+
     @Override
     protected void setContentToGridPane(GridPane pane) {
         colorPicker = new ColorPicker();
@@ -27,6 +34,15 @@ public class LineDialog extends AbstractDialog<Line> {
         addRowToGrid(pane, 2, "Start Y", startYTextField);
         addRowToGrid(pane, 3, "End X", endXTextField);
         addRowToGrid(pane, 4, "End Y", endYTextField);
+    }
+
+    @Override
+    protected void setFigureState(Line figure) {
+        colorPicker.setValue(getFxColor(figure.getColor()));
+        startXTextField.textProperty().setValue(Double.toString(figure.getStartX()));
+        startYTextField.textProperty().setValue(Double.toString(figure.getStartY()));
+        endXTextField.textProperty().setValue(Double.toString(figure.getEndX()));
+        endYTextField.textProperty().setValue(Double.toString(figure.getEndY()));
     }
 
     @Override

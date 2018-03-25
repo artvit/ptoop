@@ -10,10 +10,12 @@ public class Color {
     public static final Color MAGENTA = new Color(1, 0, 1);
     public static final Color YELLOW = new Color(1, 1, 0);
 
-
     private double red;
     private double green;
     private double blue;
+
+    public Color() {
+    }
 
     public Color(double red, double green, double blue) {
         this.red = red;
@@ -43,5 +45,14 @@ public class Color {
 
     public void setBlue(double blue) {
         this.blue = blue;
+    }
+
+    @Override
+    public String toString() {
+        return "Color{" +
+                "red=" + red +
+                ", green=" + green +
+                ", blue=" + blue +
+                '}';
     }
 }

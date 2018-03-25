@@ -1,22 +1,22 @@
 package by.bsuir.oop.gui.module;
 
 import by.bsuir.oop.gui.dialog.LineDialog;
-import by.bsuir.oop.gui.drawer.LineDrawer;
+import by.bsuir.oop.gui.editor.LineEditor;
 import by.bsuir.oop.model.impl.Line;
 
 public class LineModule extends AbstractModule<Line> {
     @Override
-    public LineDrawer getFigureDrawer() {
-        return new LineDrawer();
+    public LineEditor getEditor() {
+        return new LineEditor();
     }
 
     @Override
-    protected LineDialog getDialog() {
+    public LineDialog getDialog() {
         return new LineDialog();
     }
 
     @Override
-    protected String getMenuItemTitle() {
-        return "Draw Line";
+    public String getMenuItemTitle() {
+        return "Line";
     }
 }

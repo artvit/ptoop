@@ -11,6 +11,9 @@ public class Line extends Figure {
     private double endX;
     private double endY;
 
+    public Line() {
+    }
+
     public Line(Color color, double startX, double startY, double endX, double endY) throws FigureCreationException {
         super(color);
         if (startX <= 0 || startY <= 0 || endX <= 0 || endY <= 0) {
@@ -52,5 +55,15 @@ public class Line extends Figure {
 
     public void setEndY(double endY) {
         this.endY = endY;
+    }
+
+    @Override
+    public String toString() {
+        return "Line{" +
+                "startX=" + startX +
+                ", startY=" + startY +
+                ", endX=" + endX +
+                ", endY=" + endY +
+                "} " + super.toString();
     }
 }

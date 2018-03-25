@@ -15,6 +15,13 @@ public class RectangleDialog extends AbstractDialog<Rectangle> {
     private TextField widthTextField;
     private TextField heightTextField;
 
+    public RectangleDialog() {
+    }
+
+    public RectangleDialog(Rectangle figure) {
+        super(figure);
+    }
+
     @Override
     protected void setContentToGridPane(GridPane pane) {
         colorPicker = new ColorPicker();
@@ -30,6 +37,16 @@ public class RectangleDialog extends AbstractDialog<Rectangle> {
         addRowToGrid(pane, 3, "Y", yTextField);
         addRowToGrid(pane, 4, "Width", widthTextField);
         addRowToGrid(pane, 5, "Height", heightTextField);
+    }
+
+    @Override
+    protected void setFigureState(Rectangle figure) {
+        colorPicker.setValue(getFxColor(figure.getColor()));
+        fillColorPicker.setValue(getFxColor(figure.getFillColor()));
+        xTextField.textProperty().setValue(Double.toString(figure.getX()));
+        yTextField.textProperty().setValue(Double.toString(figure.getY()));
+        widthTextField.textProperty().setValue(Double.toString(figure.getWidth()));
+        heightTextField.textProperty().setValue(Double.toString(figure.getHeight()));
     }
 
     @Override

@@ -8,6 +8,9 @@ public class Point extends Figure {
     private double x;
     private double y;
 
+    public Point() {
+    }
+
     public Point(Color color, double x, double y) throws FigureCreationException {
         super(color);
         if (x <= 0 || y <= 0) {
@@ -31,5 +34,13 @@ public class Point extends Figure {
 
     public void setY(double y) {
         this.y = y;
+    }
+
+    @Override
+    public String toString() {
+        return "Point{" +
+                "x=" + x +
+                ", y=" + y +
+                "} " + super.toString();
     }
 }

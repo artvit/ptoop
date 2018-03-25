@@ -10,6 +10,9 @@ public class Circle extends ShapeFigure {
     private double centerX;
     private double centerY;
 
+    public Circle() {
+    }
+
     public Circle(Color color, Color fillColor, double radius, double centerX, double centerY) throws FigureCreationException {
         super(color, fillColor);
         if (radius <= 0) {
@@ -45,5 +48,14 @@ public class Circle extends ShapeFigure {
 
     public void setCenterY(double centerY) {
         this.centerY = centerY;
+    }
+
+    @Override
+    public String toString() {
+        return "Circle{" +
+                "radius=" + radius +
+                ", centerX=" + centerX +
+                ", centerY=" + centerY +
+                "} " + super.toString();
     }
 }

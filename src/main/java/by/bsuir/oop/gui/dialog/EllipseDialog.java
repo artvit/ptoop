@@ -15,6 +15,13 @@ public class EllipseDialog extends AbstractDialog<Ellipse> {
     private TextField radiusTextField;
     private TextField horizontalRadiusTextField;
 
+    public EllipseDialog() {
+    }
+
+    public EllipseDialog(Ellipse figure) {
+        super(figure);
+    }
+
     @Override
     protected void setContentToGridPane(GridPane pane) {
         colorPicker = new ColorPicker();
@@ -30,6 +37,16 @@ public class EllipseDialog extends AbstractDialog<Ellipse> {
         addRowToGrid(pane, 3, "Center Y", centerYTextField);
         addRowToGrid(pane, 4, "Vertical Radius", radiusTextField);
         addRowToGrid(pane, 5, "Horizontal Radius", horizontalRadiusTextField);
+    }
+
+    @Override
+    protected void setFigureState(Ellipse figure) {
+        colorPicker.setValue(getFxColor(figure.getColor()));
+        fillColorPicker.setValue(getFxColor(figure.getFillColor()));
+        centerXTextField.textProperty().setValue(Double.toString(figure.getCenterX()));
+        centerYTextField.textProperty().setValue(Double.toString(figure.getCenterY()));
+        radiusTextField.textProperty().setValue(Double.toString(figure.getRadius()));
+        horizontalRadiusTextField.textProperty().setValue(Double.toString(figure.getHorizontalRadius()));
     }
 
     @Override

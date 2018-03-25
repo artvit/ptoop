@@ -17,6 +17,13 @@ public class TriangleDialog extends AbstractDialog<Triangle> {
     private TextField x3TextField;
     private TextField y3TextField;
 
+    public TriangleDialog() {
+    }
+
+    public TriangleDialog(Triangle figure) {
+        super(figure);
+    }
+
     @Override
     protected void setContentToGridPane(GridPane pane) {
         colorPicker = new ColorPicker();
@@ -36,6 +43,18 @@ public class TriangleDialog extends AbstractDialog<Triangle> {
         addRowToGrid(pane, 5, "Point 2 Y", y2TextField);
         addRowToGrid(pane, 6, "Point 3 X", x3TextField);
         addRowToGrid(pane, 7, "Point 3 Y", y3TextField);
+    }
+
+    @Override
+    protected void setFigureState(Triangle figure) {
+        colorPicker.setValue(getFxColor(figure.getColor()));
+        fillColorPicker.setValue(getFxColor(figure.getFillColor()));
+        x1TextField.textProperty().setValue(Double.toString(figure.getX1()));
+        y1TextField.textProperty().setValue(Double.toString(figure.getY1()));
+        x2TextField.textProperty().setValue(Double.toString(figure.getX2()));
+        y2TextField.textProperty().setValue(Double.toString(figure.getY2()));
+        x3TextField.textProperty().setValue(Double.toString(figure.getX3()));
+        y3TextField.textProperty().setValue(Double.toString(figure.getY3()));
     }
 
     @Override

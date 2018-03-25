@@ -12,6 +12,13 @@ public class PointDialog extends AbstractDialog<Point> {
     private TextField xTextField;
     private TextField yTextField;
 
+    public PointDialog() {
+    }
+
+    public PointDialog(Point figure) {
+        super(figure);
+    }
+
     @Override
     protected void setContentToGridPane(GridPane pane) {
         colorPicker = new ColorPicker();
@@ -21,6 +28,13 @@ public class PointDialog extends AbstractDialog<Point> {
         addRowToGrid(pane, 0, "Color", colorPicker);
         addRowToGrid(pane, 1, "X", xTextField);
         addRowToGrid(pane, 2, "Y", yTextField);
+    }
+
+    @Override
+    protected void setFigureState(Point figure) {
+        colorPicker.setValue(getFxColor(figure.getColor()));
+        xTextField.textProperty().setValue(Double.toString(figure.getX()));
+        yTextField.textProperty().setValue(Double.toString(figure.getY()));
     }
 
     @Override

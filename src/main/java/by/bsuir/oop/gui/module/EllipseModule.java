@@ -1,22 +1,22 @@
 package by.bsuir.oop.gui.module;
 
 import by.bsuir.oop.gui.dialog.EllipseDialog;
-import by.bsuir.oop.gui.drawer.EllipseDrawer;
+import by.bsuir.oop.gui.editor.EllipseEditor;
 import by.bsuir.oop.model.impl.Ellipse;
 
 public class EllipseModule extends AbstractModule<Ellipse> {
     @Override
-    public EllipseDrawer getFigureDrawer() {
-        return new EllipseDrawer();
+    public EllipseEditor getEditor() {
+        return new EllipseEditor();
     }
 
     @Override
-    protected EllipseDialog getDialog() {
+    public EllipseDialog getDialog() {
         return new EllipseDialog();
     }
 
     @Override
-    protected String getMenuItemTitle() {
-        return "Draw Ellipse";
+    public String getMenuItemTitle() {
+        return "Ellipse";
     }
 }

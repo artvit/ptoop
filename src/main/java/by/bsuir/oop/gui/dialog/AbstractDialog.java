@@ -18,21 +18,24 @@ public abstract class AbstractDialog<T extends Figure> {
      * Creates basic dialog with GridPane and uses overridden methods
      */
     public AbstractDialog() {
+        initDialog();
+        GridPane grid = initGrid();
+        setContentToGridPane(grid);
+        dialog.getDialogPane().setContent(grid);
+    }
+
+    public AbstractDialog(T figure) {
+        this();
+        setFigureState(figure);
+    }
+
+    private void initDialog() {
         dialog = new Dialog<>();
         dialog.setTitle("Create Figure");
         dialog.setHeaderText("Enter data to create figure");
 
         ButtonType createButtonType = new ButtonType("Create", ButtonBar.ButtonData.OK_DONE);
         dialog.getDialogPane().getButtonTypes().addAll(createButtonType, ButtonType.CANCEL);
-
-        GridPane grid = new GridPane();
-        grid.setHgap(10);
-        grid.setVgap(10);
-        grid.setPadding(new Insets(20, 20, 10, 10));
-
-        setContentToGridPane(grid);
-
-        dialog.getDialogPane().setContent(grid);
 
         dialog.setResultConverter(dialogButton -> {
             if (dialogButton == createButtonType) {
@@ -46,12 +49,23 @@ public abstract class AbstractDialog<T extends Figure> {
         });
     }
 
+    private GridPane initGrid() {
+        GridPane grid = new GridPane();
+        grid.setHgap(10);
+        grid.setVgap(10);
+        grid.setPadding(new Insets(20, 20, 10, 10));
+        return grid;
+    }
+
+
+
     /**
      * Implementations should set content to passed as parameter grid pane
      *
      * @param pane GridPane supposed to be set with controls
      */
     protected abstract void setContentToGridPane(GridPane pane);
+    protected abstract void setFigureState(T figure);
 
     /**
      * Returns instance of some figure that must be created from controls stored in
@@ -98,4 +112,13 @@ public abstract class AbstractDialog<T extends Figure> {
         pane.add(node, 1, rowNum);
     }
 
+    /**
+     * Converts our model Color object to Color from JavaFX
+     *
+     * @param color Color from Figure
+     * @return Color from JavaFX
+     */
+    protected javafx.scene.paint.Color getFxColor(by.bsuir.oop.model.Color color) {
+        return javafx.scene.paint.Color.color(color.getRed(), color.getGreen(), color.getBlue());
+    }
 }

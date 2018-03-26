@@ -17,11 +17,11 @@ public class UnpackerAdapterProcessor implements Processor {
     @Override
     public byte[] processData(byte[] data) {
         try {
-            try (FileOutputStream fileOutputStream = new FileOutputStream(TEMP_FILE_NAME)) {
+            try (FileOutputStream fileOutputStream = new FileOutputStream(TEMP_FILE_NAME + ".gz")) {
                 fileOutputStream.write(data);
             }
             byte[] result = (byte[]) DearchivingUtil.dearchiveObject(TEMP_FILE_NAME);
-            Files.delete(Paths.get(TEMP_FILE_NAME));
+            Files.delete(Paths.get(TEMP_FILE_NAME + ".gz"));
             return result;
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();

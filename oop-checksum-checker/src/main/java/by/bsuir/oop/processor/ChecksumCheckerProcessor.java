@@ -31,7 +31,7 @@ public class ChecksumCheckerProcessor implements Processor {
     @Override
     public byte[] processData(byte[] data) {
         FileChooser fileChooser = new FileChooser();
-        fileChooser.setTitle("Choose filename to save checksum");
+        fileChooser.setTitle("Choose filename to load checksum");
         File file = fileChooser.showOpenDialog(Stage.getWindows().filtered(Window::isShowing).get(0));
         if (file != null) {
             try (BufferedReader reader= new BufferedReader(new FileReader(file))) {

@@ -19,10 +19,10 @@ public class PackerAdapterProcessor implements Processor {
         try {
             ArchivingUtility.archiveObject(TEMP_FILE_NAME, data);
             byte[] result;
-            try (FileInputStream fileInputStream = new FileInputStream(TEMP_FILE_NAME)) {
+            try (FileInputStream fileInputStream = new FileInputStream(TEMP_FILE_NAME + ".gz")) {
                 result = fileInputStream.readAllBytes();
             }
-            Files.delete(Paths.get(TEMP_FILE_NAME));
+            Files.delete(Paths.get( TEMP_FILE_NAME + ".gz"));
             return result;
         } catch (IOException e) {
             e.printStackTrace();

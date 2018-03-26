@@ -23,7 +23,6 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
-import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
@@ -32,7 +31,7 @@ import java.util.stream.Collectors;
 public class TableController {
     @FXML private Menu addMenu;
     @FXML private Menu editMenu;
-    @FXML private Menu serializeMenu;
+    @FXML private Menu fileMenu;
     @FXML private Menu optionsMenu;
 
     @FXML private TableView<Row> table;
@@ -49,9 +48,9 @@ public class TableController {
 
     @FXML
     public void initialize() {
+        initFileMenu();
         initTableView();
         initEditMenu();
-        initSerializeMenu();
         initOptionsMenu();
 
         objectMapper = new ObjectMapper(new BsonFactory());
@@ -122,7 +121,7 @@ public class TableController {
         });
         editMenu.getItems().add(deleteMenuItem);
 
-        MenuItem editMenuItem = new MenuItem("Edit Active Row");
+        MenuItem editMenuItem = new MenuItem("Edit active row...");
         editMenuItem.setOnAction(event -> {
             Row selected = table.getSelectionModel().getSelectedItem();
             if (selected != null) {
@@ -136,8 +135,8 @@ public class TableController {
     /**
      * Adds items to serialization menu
      */
-    private void initSerializeMenu() {
-        MenuItem serializeMenuItem = new MenuItem("Serialize");
+    private void initFileMenu() {
+        MenuItem serializeMenuItem = new MenuItem("Save selected...");
         serializeMenuItem.setOnAction(event -> {
             List<Figure> toBeSerialized = data
                     .filtered(Row::isChecked)
@@ -158,8 +157,8 @@ public class TableController {
                 }
             }
         });
-        serializeMenu.getItems().add(serializeMenuItem);
-        MenuItem deserializeMenuItem = new MenuItem("Deserialize");
+        fileMenu.getItems().add(serializeMenuItem);
+        MenuItem deserializeMenuItem = new MenuItem("Load...");
         deserializeMenuItem.setOnAction(event -> {
             FileChooser fileChooser = getBsonFileChooser();
             File file = fileChooser.showOpenDialog(stage);
@@ -172,28 +171,28 @@ public class TableController {
                 }
             }
         });
-        serializeMenu.getItems().add(deserializeMenuItem);
+        fileMenu.getItems().add(deserializeMenuItem);
     }
 
     /**
      * Initializes options menu
      */
     private void initOptionsMenu() {
-        MenuItem loadPluginMenuItem = new MenuItem("Load Plugin");
+        MenuItem loadPluginMenuItem = new MenuItem("Load plugin...");
         loadPluginMenuItem.setOnAction(event -> {
             Optional<String> classNameOptional = openDialogToGetClassName();
             classNameOptional.ifPresent(this::loadModule);
         });
         optionsMenu.getItems().add(loadPluginMenuItem);
 
-        MenuItem loadOnLoadPluginMenuItem = new MenuItem("Load On Load Plugin");
+        MenuItem loadOnLoadPluginMenuItem = new MenuItem("Load On Load plugin...");
         loadOnLoadPluginMenuItem.setOnAction(event -> {
             Optional<String> classNameOptional = openDialogToGetClassName();
             classNameOptional.ifPresent(this::loadOnLoadModule);
         });
         optionsMenu.getItems().add(loadOnLoadPluginMenuItem);
 
-        MenuItem loadOnSavePluginMenuItem = new MenuItem("Load On Save Plugin");
+        MenuItem loadOnSavePluginMenuItem = new MenuItem("Load On Save plugin...");
         loadOnSavePluginMenuItem.setOnAction(event -> {
             Optional<String> classNameOptional = openDialogToGetClassName();
             classNameOptional.ifPresent(this::loadOnSaveModule);

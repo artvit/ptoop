@@ -13,9 +13,9 @@
             <children>
                 <MenuBar>
                     <menus>
+                        <Menu fx:id="fileMenu" mnemonicParsing="false" text="File" />
                         <Menu fx:id="addMenu" mnemonicParsing="false" text="Add" />
                         <Menu fx:id="editMenu" mnemonicParsing="false" text="Edit" />
-                        <Menu fx:id="serializeMenu" mnemonicParsing="false" text="Serialize" />
                         <Menu fx:id="optionsMenu" mnemonicParsing="false" text="Options" />
                     </menus>
                 </MenuBar>

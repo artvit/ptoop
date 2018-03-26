@@ -11,6 +11,8 @@
         <module>oop-main</module>
         <module>oop-round-rectangle</module>
         <module>oop-common</module>
+        <module>oop-checksum-saver</module>
+        <module>oop-checksum-checker</module>
     </modules>
 
     <packaging>pom</packaging>

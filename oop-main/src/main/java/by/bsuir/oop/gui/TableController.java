@@ -150,8 +150,18 @@ public class TableController {
                 if(!file.getName().contains(".")) {
                     file = new File(file.getAbsolutePath() + ".bson");
                 }
-                try (OutputStream outputStream = new FileOutputStream(file)) {
-                    objectMapper.writeValue(outputStream, toBeSerialized);
+                try (OutputStream outputStream = new FileOutputStream(file);
+                    ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream()) {
+                    objectMapper.writeValue(byteArrayOutputStream, toBeSerialized);
+                    byte[] data = byteArrayOutputStream.toByteArray();
+                    for (Processor processor:saveProcessors) {
+                        if (data != null) {
+                            data = processor.processData(data);
+                        }
+                    }
+                    if (data != null) {
+                        outputStream.write(data);
+                    }
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -164,7 +174,13 @@ public class TableController {
             File file = fileChooser.showOpenDialog(stage);
             if (file != null) {
                 try (InputStream inputStream = new FileInputStream(file)) {
-                    List<Figure> list = objectMapper.readValue(inputStream, new TypeReference<FigureList>(){});
+                    byte[] data = inputStream.readAllBytes();
+                    for (Processor processor:loadProcessors) {
+                        if (data != null) {
+                            data = processor.processData(data);
+                        }
+                    }
+                    List<Figure> list = objectMapper.readValue(data, new TypeReference<FigureList>(){});
                     list.forEach(this::addFigure);
                 } catch (IOException e) {
                     e.printStackTrace();

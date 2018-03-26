@@ -42,7 +42,6 @@ public class ChecksumCheckerProcessor implements Processor {
                     alert.setTitle("Error");
                     alert.setHeaderText("Checksum check failed");
                     alert.setContentText("Checksums are not equal. Do you want to continue reading");
-                    alert.showAndWait();
                     Optional<ButtonType> result = alert.showAndWait();
                     if (result.isPresent() && result.get() == ButtonType.OK){
                         return data;

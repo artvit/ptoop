@@ -3,6 +3,8 @@ package by.bsuir.oop.gui;
 import by.bsuir.oop.gui.dialog.AbstractDialog;
 import by.bsuir.oop.gui.editor.AbstractChainEditor;
 import by.bsuir.oop.gui.module.AbstractModule;
+import by.bsuir.oop.gui.module.FunctionalModule;
+import by.bsuir.oop.gui.module.Processor;
 import by.bsuir.oop.gui.table.Row;
 import by.bsuir.oop.model.Figure;
 import by.bsuir.oop.util.FigureList;
@@ -21,6 +23,8 @@ import javafx.stage.Stage;
 import java.io.*;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -38,8 +42,10 @@ public class TableController {
     private ObjectMapper objectMapper;
     private AbstractChainEditor editor;
     private ObservableList<Row> data;
-
     private Stage stage;
+
+    private List<Processor> saveProcessors;
+    private List<Processor> loadProcessors;
 
     @FXML
     public void initialize() {
@@ -47,8 +53,12 @@ public class TableController {
         initEditMenu();
         initSerializeMenu();
         initOptionsMenu();
+
         objectMapper = new ObjectMapper(new BsonFactory());
         objectMapper.enableDefaultTyping();
+
+        saveProcessors = new LinkedList<>();
+        loadProcessors = new LinkedList<>();
     }
 
     /**
@@ -171,14 +181,24 @@ public class TableController {
     private void initOptionsMenu() {
         MenuItem loadPluginMenuItem = new MenuItem("Load Plugin");
         loadPluginMenuItem.setOnAction(event -> {
-            TextInputDialog dialog = new TextInputDialog("by.bsuir.oop.gui.module.RoundRectangleModule");
-            dialog.setTitle("Module Class");
-            dialog.setHeaderText("Specify full module class name");
-            dialog.setContentText("Class:");
-            Optional<String> classNameOptional = dialog.showAndWait();
+            Optional<String> classNameOptional = openDialogToGetClassName();
             classNameOptional.ifPresent(this::loadModule);
         });
         optionsMenu.getItems().add(loadPluginMenuItem);
+
+        MenuItem loadOnLoadPluginMenuItem = new MenuItem("Load On Load Plugin");
+        loadOnLoadPluginMenuItem.setOnAction(event -> {
+            Optional<String> classNameOptional = openDialogToGetClassName();
+            classNameOptional.ifPresent(this::loadOnLoadModule);
+        });
+        optionsMenu.getItems().add(loadOnLoadPluginMenuItem);
+
+        MenuItem loadOnSavePluginMenuItem = new MenuItem("Load On Save Plugin");
+        loadOnSavePluginMenuItem.setOnAction(event -> {
+            Optional<String> classNameOptional = openDialogToGetClassName();
+            classNameOptional.ifPresent(this::loadOnSaveModule);
+        });
+        optionsMenu.getItems().add(loadOnSavePluginMenuItem);
     }
 
     /**
@@ -191,6 +211,19 @@ public class TableController {
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("BSON files (*.bson)", "*.bson"));
         fileChooser.getExtensionFilters().add(new FileChooser.ExtensionFilter("Any files", "*"));
         return fileChooser;
+    }
+
+    /**
+     * Opens dialog to get class name
+     *
+     * @return Optional object which should contain class name
+     */
+    private Optional<String> openDialogToGetClassName() {
+        TextInputDialog dialog = new TextInputDialog("by.bsuir.oop.gui.module.RoundRectangleModule");
+        dialog.setTitle("Module Class");
+        dialog.setHeaderText("Specify full module class name");
+        dialog.setContentText("Class:");
+        return dialog.showAndWait();
     }
 
     /**
@@ -208,6 +241,27 @@ public class TableController {
                 | InstantiationException | InvocationTargetException e) {
             e.printStackTrace();
         }
+    }
+
+    private void loadOnSaveModule(String className) {
+        saveProcessors.add(loadProcessor(className));
+    }
+
+    private void loadOnLoadModule(String className) {
+        loadProcessors.add(loadProcessor(className));
+    }
+
+    private Processor loadProcessor(String moduleName) {
+        try {
+            Class<FunctionalModule> moduleClass = (Class<FunctionalModule>)Class.forName(moduleName);
+            Constructor<FunctionalModule> constructor = moduleClass.getConstructor();
+            FunctionalModule module = constructor.newInstance();
+            return module.getProcessor();
+        } catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException
+                | InstantiationException | InvocationTargetException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
 }

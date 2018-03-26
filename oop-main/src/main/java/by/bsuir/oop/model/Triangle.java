@@ -1,9 +1,5 @@
 package by.bsuir.oop.model;
 
-import by.bsuir.oop.model.Color;
-import by.bsuir.oop.model.ShapeFigure;
-import by.bsuir.oop.model.FigureCreationException;
-
 public class Triangle extends ShapeFigure {
     private double x1;
     private double y1;

@@ -1,9 +1,5 @@
 package by.bsuir.oop.model;
 
-import by.bsuir.oop.model.Color;
-import by.bsuir.oop.model.Figure;
-import by.bsuir.oop.model.FigureCreationException;
-
 public class Line extends Figure {
     private double startX;
     private double startY;

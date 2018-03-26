@@ -1,8 +1,8 @@
 package by.bsuir.oop.gui.dialog;
 
 import by.bsuir.oop.model.Color;
-import by.bsuir.oop.model.FigureCreationException;
 import by.bsuir.oop.model.Ellipse;
+import by.bsuir.oop.model.FigureCreationException;
 import javafx.scene.control.ColorPicker;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;

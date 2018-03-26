@@ -1,8 +1,8 @@
 package by.bsuir.oop.gui.editor;
 
 import by.bsuir.oop.gui.dialog.CircleDialog;
-import by.bsuir.oop.model.Figure;
 import by.bsuir.oop.model.Circle;
+import by.bsuir.oop.model.Figure;
 
 import java.util.Optional;
 

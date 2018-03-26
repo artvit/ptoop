@@ -1,9 +1,5 @@
 package by.bsuir.oop.model;
 
-import by.bsuir.oop.model.Color;
-import by.bsuir.oop.model.ShapeFigure;
-import by.bsuir.oop.model.FigureCreationException;
-
 public class Rectangle extends ShapeFigure {
     private double x;
     private double y;

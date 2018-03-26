@@ -266,6 +266,12 @@ public class TableController {
         loadProcessors.add(loadProcessor(className));
     }
 
+    /**
+     * Loads Functional module
+     *
+     * @param moduleName FunctionalModule class name
+     * @return instance of Processor class provided by module
+     */
     private Processor loadProcessor(String moduleName) {
         try {
             Class<FunctionalModule> moduleClass = (Class<FunctionalModule>)Class.forName(moduleName);

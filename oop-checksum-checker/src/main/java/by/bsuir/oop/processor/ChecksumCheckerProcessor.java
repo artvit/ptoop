@@ -19,6 +19,12 @@ public class ChecksumCheckerProcessor implements Processor {
         this.checksum = new Checksum();
     }
 
+    /**
+     * Load checksum from file and compare it with computed from passed data
+     *
+     * @param data byte array of data to process
+     * @return the same byte array as passed if sum checked successfully, otherwise returns null
+     */
     @Override
     public byte[] processData(byte[] data) {
         FileChooser fileChooser = new FileChooser();

@@ -19,6 +19,12 @@ public class ChecksumSaverProcessor implements Processor {
         this.checksum = new Checksum();
     }
 
+    /**
+     * Saves checksum of data to file
+     *
+     * @param data byte array of data to process
+     * @return the same data array
+     */
     @Override
     public byte[] processData(byte[] data) {
         FileChooser fileChooser = new FileChooser();

@@ -14,6 +14,7 @@
         <module>oop-checksum-saver</module>
         <module>oop-checksum-checker</module>
         <module>oop-packer-adapter</module>
+        <module>oop-unpacker-adapter</module>
     </modules>
 
     <packaging>pom</packaging>

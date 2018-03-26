@@ -9,7 +9,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class PackerAdapterProcessor implements Processor {
-    public static final String TEMP_FILE_NAME = "temp-file";
+    private static final String TEMP_FILE_NAME = "temp-file";
 
     private ArchivingModule archivingModule;
 

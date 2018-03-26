@@ -36,6 +36,18 @@
             <version>1.0-SNAPSHOT</version>
             <scope>runtime</scope>
         </dependency>
+        <dependency>
+            <groupId>by.bsuir</groupId>
+            <artifactId>oop-packer-adapter</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>by.bsuir</groupId>
+            <artifactId>oop-unpacker-adapter</artifactId>
+            <version>1.0-SNAPSHOT</version>
+            <scope>runtime</scope>
+        </dependency>
     </dependencies>
 
 </project>
